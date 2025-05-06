@@ -18,9 +18,28 @@
             @apply text-blue-600 bg-blue-50;
         }
         .hero-section {
-            background-image: url('https://placehold.co/1920x800/003366/FFFFFF?text=SERT+Engineering+Excellence');
+            /* Updated background image to be a solid color block without visible text */
+            background-image: url('https://placehold.co/1920x800/003366/003366?text=%20'); /* Text color same as background, with a space for text */
             background-size: cover;
             background-position: center;
+            position: relative; /* Needed for the overlay */
+        }
+        /* Overlay for hero section to improve text legibility */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+            border-radius: 0.5rem; /* Matches the rounded-lg class on the div */
+            z-index: 1; /* Ensure overlay is above background but below content */
+        }
+        .hero-content {
+            position: relative; /* Ensure content is above the overlay */
+            z-index: 2;
+            @apply flex flex-col items-center justify-center; /* Center content */
         }
         .section-title {
             @apply text-3xl font-bold text-gray-800 mb-8 text-center;
@@ -55,7 +74,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
                     <a href="#" onclick="showPage('home')" class="text-2xl font-bold text-blue-600">SERT</a>
-                    <p class="text-xs text-gray-500">Societe D'etudes et de Realisations Techniques S.a.r.l.</p>
+                    <p class="text-xs text-gray-500 break-words">Societe D'etudes et de Realisations Techniques S.a.r.l.</p>
                 </div>
                 <nav id="desktop-menu" class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -89,14 +108,16 @@
     <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         <section id="home" class="page-content">
-            <div class="hero-section rounded-lg text-white py-20 px-6 md:py-32 md:px-12 mb-12 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to SERT</h1>
-                <p class="text-lg md:text-xl mb-8">Your trusted partner for Electrical & Mechanical Consultant Engineering.</p>
-                <a href="#" onclick="showPage('about')" class="bg-white text-blue-600 hover:bg-blue-100 font-semibold py-3 px-6 rounded-lg shadow-md transition-colors">Learn More About Us</a>
+            <div class="hero-section rounded-lg text-white py-16 px-4 sm:py-20 md:py-28 lg:py-32 text-center mb-12">
+                <div class="hero-content max-w-3xl mx-auto"> 
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 break-words" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">Welcome to SERT</h1>
+                    <p class="text-base sm:text-lg md:text-xl mb-6 break-words" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">Your trusted partner for Electrical & Mechanical Consultant Engineering.</p>
+                    <a href="#" onclick="showPage('about')" class="bg-white text-blue-600 hover:bg-blue-100 font-semibold py-3 px-6 rounded-lg shadow-md transition-colors">Learn More About Us</a>
+                </div>
             </div>
             <div class="text-center">
-                <h2 class="section-title">Engineering Excellence Since 1987</h2>
-                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                <h2 class="section-title break-words">Engineering Excellence Since 1987</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto break-words">
                     SERT (Societe D'etudes et de Realisations Techniques S.a.r.l.) provides top-tier Electrical, Mechanical, Fire Protection, Telecommunications & Networking Design & Consultancy, and Site Supervision. Our highly qualified team is dedicated to merging client needs with efficient, innovative design solutions.
                 </p>
             </div>
@@ -109,7 +130,7 @@
                     <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Our+Team+at+Work" alt="SERT Team" class="rounded-lg shadow-lg w-full">
                 </div>
                 <div class="text-gray-700 space-y-4">
-                    <p class="text-lg">"Société d'Etudes et de Réalisation Techniques" (SERT) brings decades of expertise to every project. Our engineers are adept at addressing complex issues across a wide spectrum of systems.</p>
+                    <p class="text-lg break-words">"Société d'Etudes et de Réalisation Techniques" (SERT) brings decades of expertise to every project. Our engineers are adept at addressing complex issues across a wide spectrum of systems.</p>
                     <p><strong>Our Expertise Includes:</strong></p>
                     <ul class="list-disc list-inside space-y-2">
                         <li>HVAC systems: central energy plants, packaged air/water cooled systems, split/unitary systems.</li>
@@ -118,7 +139,7 @@
                         <li>Electrical systems: illumination design, safety and code compliance, power generation, transmission, and distribution (low, medium, high voltage).</li>
                         <li>Safety: fire alarm, security, voice notification, emergency power and lighting.</li>
                     </ul>
-                    <p>We pride ourselves on a meticulous approach, where every design is checked and double-checked to eradicate weaknesses and ensure optimal performance and safety. SERT is uniquely qualified to partner with you in developing master plans, preparing feasibility studies, and designing the mechanical and electrical systems for new facilities or renovations.</p>
+                    <p class="break-words">We pride ourselves on a meticulous approach, where every design is checked and double-checked to eradicate weaknesses and ensure optimal performance and safety. SERT is uniquely qualified to partner with you in developing master plans, preparing feasibility studies, and designing the mechanical and electrical systems for new facilities or renovations.</p>
                 </div>
             </div>
         </section>
