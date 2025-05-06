@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERT - Electrical & Mechanical Consultant Engineers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link {
+            @apply px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md text-sm font-medium transition-colors;
+        }
+        .nav-link.active {
+            @apply text-blue-600 bg-blue-50;
+        }
+        .hero-section {
+            background-image: url('https://placehold.co/1920x800/003366/FFFFFF?text=SERT+Engineering+Excellence');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-8 text-center;
+        }
+        .service-card, .project-card {
+            @apply bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
+        }
+        .footer {
+            @apply bg-gray-800 text-white py-8 text-center;
+        }
+        /* Basic responsive menu toggle */
+        #mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #desktop-menu {
+                display: none;
+            }
+            #mobile-menu {
+                display: none; /* Initially hidden, toggled by JS */
+            }
+            #mobile-menu.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" onclick="showPage('home')" class="text-2xl font-bold text-blue-600">SERT</a>
+                    <p class="text-xs text-gray-500">Societe D'etudes et de Realisations Techniques S.a.r.l.</p>
+                </div>
+                <nav id="desktop-menu" class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" onclick="showPage('home')" data-page="home" class="nav-link active">Home</a>
+                        <a href="#" onclick="showPage('about')" data-page="about" class="nav-link">About Us</a>
+                        <a href="#" onclick="showPage('services')" data-page="services" class="nav-link">Services</a>
+                        <a href="#" onclick="showPage('projects')" data-page="projects" class="nav-link">Projects</a>
+                        <a href="#" onclick="showPage('contact')" data-page="contact" class="nav-link">Contact</a>
+                    </div>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" onclick="showPage('home')" data-page="home" class="block nav-link active">Home</a>
+                <a href="#" onclick="showPage('about')" data-page="about" class="block nav-link">About Us</a>
+                <a href="#" onclick="showPage('services')" data-page="services" class="block nav-link">Services</a>
+                <a href="#" onclick="showPage('projects')" data-page="projects" class="block nav-link">Projects</a>
+                <a href="#" onclick="showPage('contact')" data-page="contact" class="block nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <section id="home" class="page-content">
+            <div class="hero-section rounded-lg text-white py-20 px-6 md:py-32 md:px-12 mb-12 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to SERT</h1>
+                <p class="text-lg md:text-xl mb-8">Your trusted partner for Electrical & Mechanical Consultant Engineering.</p>
+                <a href="#" onclick="showPage('about')" class="bg-white text-blue-600 hover:bg-blue-100 font-semibold py-3 px-6 rounded-lg shadow-md transition-colors">Learn More About Us</a>
+            </div>
+            <div class="text-center">
+                <h2 class="section-title">Engineering Excellence Since 1987</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    SERT (Societe D'etudes et de Realisations Techniques S.a.r.l.) provides top-tier Electrical, Mechanical, Fire Protection, Telecommunications & Networking Design & Consultancy, and Site Supervision. Our highly qualified team is dedicated to merging client needs with efficient, innovative design solutions.
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="page-content hidden">
+            <h2 class="section-title">About SERT</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Our+Team+at+Work" alt="SERT Team" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="text-gray-700 space-y-4">
+                    <p class="text-lg">"Société d'Etudes et de Réalisation Techniques" (SERT) brings decades of expertise to every project. Our engineers are adept at addressing complex issues across a wide spectrum of systems.</p>
+                    <p><strong>Our Expertise Includes:</strong></p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>HVAC systems: central energy plants, packaged air/water cooled systems, split/unitary systems.</li>
+                        <li>Specialized systems: smoke control, energy conservation, humidity control, indoor air quality, laminar flow.</li>
+                        <li>Plumbing: sanitary, domestic water, booster pumps, central hot water, water treatment, solar heating, fueling systems.</li>
+                        <li>Electrical systems: illumination design, safety and code compliance, power generation, transmission, and distribution (low, medium, high voltage).</li>
+                        <li>Safety: fire alarm, security, voice notification, emergency power and lighting.</li>
+                    </ul>
+                    <p>We pride ourselves on a meticulous approach, where every design is checked and double-checked to eradicate weaknesses and ensure optimal performance and safety. SERT is uniquely qualified to partner with you in developing master plans, preparing feasibility studies, and designing the mechanical and electrical systems for new facilities or renovations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="page-content hidden">
+            <h2 class="section-title">Our Comprehensive Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cogs fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Mechanical Engineering</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Heating, Ventilating and Air Conditioning (HVAC)</li>
+                        <li>Public Health</li>
+                        <li>Water Treatment And Distribution</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bolt fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Electrical Engineering</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Standby Power Generators</li>
+                        <li>UPS Installations</li>
+                        <li>Medium & Low Voltage Distribution</li>
+                        <li>Indoor, Outdoor and Façade Lighting</li>
+                        <li>Earthing And Lightning Protection</li>
+                        <li>Home and Office Automation</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-network-wired fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Low Current Systems</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Structured Cabling Systems</li>
+                        <li>Communications Systems</li>
+                        <li>Background Music & Public Address</li>
+                        <li>TV Distribution & Digital Signage</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-road fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Infrastructure</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Energy Production And Supply</li>
+                        <li>MV Substations And Networks</li>
+                        <li>Low Voltage Network</li>
+                        <li>Road And Area Lighting</li>
+                        <li>Telephone And Fiber Optic Network</li>
+                        <li>Tunnel Lighting</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Life Safety</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Smoke Control</li>
+                        <li>Fire Alarm And Suppression</li>
+                        <li>Emergency Lighting & Voice Comm.</li>
+                        <li>Refuge Communication System</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-lock fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Security</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Threat And Risk Assessment</li>
+                        <li>Physical And Electronic Security</li>
+                    </ul>
+                </div>
+                <div class="service-card p-6 md:col-span-2 lg:col-span-3">
+                     <div class="flex items-center mb-4">
+                        <i class="fas fa-star fa-2x text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Specialized Services</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Lifts</li>
+                            <li>Audio Visual and Multimedia</li>
+                            <li>Data Center Design & Implementation</li>
+                        </ul>
+                         <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Renewable Energy Solutions</li>
+                            <li>Sustainable Building Services Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="page-content hidden">
+            <h2 class="section-title">Our Landmark Projects</h2>
+            <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto">SERT has a rich history of successful projects across diverse sectors. Below is a glimpse of our portfolio.</p>
+
+            <div class="mb-8 text-center">
+                <button class="project-filter-btn active-filter" onclick="filterProjects('all')">All</button>
+                <button class="project-filter-btn" onclick="filterProjects('commercial')">Commercial</button>
+                <button class="project-filter-btn" onclick="filterProjects('highrise')">High Rise</button>
+                <button class="project-filter-btn" onclick="filterProjects('hospitality')">Hospitality</button>
+                <button class="project-filter-btn" onclick="filterProjects('residential')">Residential</button>
+                <button class="project-filter-btn" onclick="filterProjects('industrial')">Industrial</button>
+                <button class="project-filter-btn" onclick="filterProjects('infrastructure')">Infrastructure</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                <div class="project-card" data-category="commercial">
+                    <img src="https://placehold.co/600x400/CCCCCC/4A5568?text=Carrefour+BCC+Lebanon" alt="Carrefour BCC Lebanon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Carrefour - BCC (Shop Drawings)</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Lebanon</p>
+                        <p class="text-gray-600 text-sm">Year: 2012</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="commercial">
+                    <img src="https://placehold.co/600x400/CCCCCC/4A5568?text=Saint+Charles+City+Center" alt="Saint Charles City Center" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Saint Charles City Center</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Beirut, Lebanon</p>
+                        <p class="text-gray-600 text-sm">Year: 1996</p>
+                    </div>
+                </div>
+                 <div class="project-card" data-category="commercial">
+                    <img src="https://placehold.co/600x400/CCCCCC/4A5568?text=BEAC+Yaounde" alt="BEAC Yaounde" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Banque Des Etats D'Afrique Centrale</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Yaounde, Cameroun</p>
+                        <p class="text-gray-600 text-sm">Year: 2023</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="highrise">
+                    <img src="https://placehold.co/600x400/DDDDDD/4A5568?text=Fransabank+Center" alt="Fransabank Center" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fransabank Center (Head Office)</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Hamra</p>
+                        <p class="text-gray-600 text-sm">Year: 2003</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="highrise">
+                    <img src="https://placehold.co/600x400/DDDDDD/4A5568?text=Eko+Pearl+Tower" alt="Eko Pearl Tower" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">EKO Pearl Tower</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Nigeria</p>
+                        <p class="text-gray-600 text-sm">Year: 2013</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="hospitality">
+                    <img src="https://placehold.co/600x400/EEEEEE/4A5568?text=Ritz+Carlton+Hotel" alt="Ritz Carlton Hotel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Ritz Carlton Hotel</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: BCD (180 rooms)</p>
+                        <p class="text-gray-600 text-sm">Year: 1998</p>
+                    </div>
+                </div>
+                 <div class="project-card" data-category="hospitality">
+                    <img src="https://placehold.co/600x400/EEEEEE/4A5568?text=Mandarin+Oriental" alt="Mandarin Oriental Hotel" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Mandarin Oriental Hotel</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Lebanon</p>
+                        <p class="text-gray-600 text-sm">Year: 2024</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="residential">
+                    <img src="https://placehold.co/600x400/F0F0F0/4A5568?text=Wadi+Abou+Jamil" alt="Wadi Abou Jamil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Wadi Abou Jamil - Lot 1379</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: BCD</p>
+                        <p class="text-gray-600 text-sm">Year: 2006</p>
+                    </div>
+                </div>
+                 <div class="project-card" data-category="residential">
+                    <img src="https://placehold.co/600x400/F0F0F0/4A5568?text=Mazal+City+Platinium" alt="Mazal City Platinium" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Mazal City Platinium</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Cote D'ivoire</p>
+                        <p class="text-gray-600 text-sm">Year: 2023</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="industrial">
+                    <img src="https://placehold.co/600x400/E5E5E5/4A5568?text=Pepsi+Cola+Hubb" alt="Pepsi Cola Hubb" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Pepsi Cola Hubb</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Chouaifat, Lebanon</p>
+                        <p class="text-gray-600 text-sm">Year: 2010</p>
+                    </div>
+                </div>
+                 <div class="project-card" data-category="industrial">
+                    <img src="https://placehold.co/600x400/E5E5E5/4A5568?text=GLO+GDIZ+Benin" alt="GLO GDIZ Benin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">GLO GDIZ</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Benin</p>
+                        <p class="text-gray-600 text-sm">Year: 2023</p>
+                    </div>
+                </div>
+                <div class="project-card" data-category="infrastructure">
+                    <img src="https://placehold.co/600x400/D5D5D5/4A5568?text=Port+of+Beirut+Rehab" alt="Port of Beirut Rehab" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Rehabilitation & Extension of Port of Beirut</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Beirut</p>
+                        <p class="text-gray-600 text-sm">Year: 1995</p>
+                    </div>
+                </div>
+                 <div class="project-card" data-category="infrastructure">
+                    <img src="https://placehold.co/600x400/D5D5D5/4A5568?text=Jabal+Omar+Dev" alt="Jabal Omar Development" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Jabal Omar Development Project</h3>
+                        <p class="text-gray-600 text-sm mb-1">Location: Makkah</p>
+                        <p class="text-gray-600 text-sm">Year: 2013</p>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .project-filter-btn {
+                    @apply px-4 py-2 mr-2 mb-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors;
+                }
+                .project-filter-btn.active-filter {
+                    @apply bg-blue-600 text-white border-blue-600;
+                }
+            </style>
+        </section>
+
+        <section id="contact" class="page-content hidden">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <p><i class="fas fa-map-marker-alt mr-3 text-blue-600"></i>AL MROUJI 2nd & 3rd FLOOR, FACING MONTELIBANO CENTER, STREET NEW JDEIDEH</p>
+                        <p><i class="fas fa-box mr-3 text-blue-600"></i>P.O.Box: 90021 JDEIDEH - LEBANON</p>
+                        <p><i class="fas fa-phone mr-3 text-blue-600"></i>Tel: 00 961 1 871872 / 00 961 1 892072</p>
+                        <p><i class="fas fa-fax mr-3 text-blue-600"></i>Fax: 00 961 1 886311</p>
+                        <p><i class="fas fa-envelope mr-3 text-blue-600"></i>Email: <a href="mailto:sert@inco.com.lb" class="text-blue-600 hover:underline">sert@inco.com.lb</a></p>
+                        <hr class="my-4">
+                        <p><i class="fas fa-file-invoice-dollar mr-3 text-blue-600"></i>VAT: 601-8202</p>
+                        <p><i class="fas fa-id-card mr-3 text-blue-600"></i>R.C.: 46257 BAABDA</p>
+                        <p><i class="fas fa-money-bill-wave mr-3 text-blue-600"></i>Capital: LBP 5,000,000</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form action="#" method="POST" id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" name="name" id="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" id="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" name="subject" id="subject" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea name="message" id="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                Send Message
+                            </button>
+                        </div>
+                        <div id="form-feedback" class="mt-4 text-sm"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> SERT S.a.r.l. All rights reserved.</p>
+        <p class="text-sm text-gray-400 mt-1">Electrical & Mechanical Consultant Engineers</p>
+    </footer>
+
+    <script>
+        // Simple SPA-like navigation
+        const pages = document.querySelectorAll('.page-content');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function showPage(pageId) {
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            // For mobile menu, close it after navigation
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+            }
+            window.scrollTo(0,0); // Scroll to top on page change
+        }
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Initial page load
+        showPage('home');
+
+        // Contact Form Submission (Basic simulation)
+        const contactForm = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('form-feedback');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual submission
+                formFeedback.textContent = 'Thank you for your message! We will get back to you soon.';
+                formFeedback.className = 'mt-4 text-sm text-green-600';
+                contactForm.reset();
+                setTimeout(() => {
+                    formFeedback.textContent = '';
+                    formFeedback.className = 'mt-4 text-sm';
+                }, 5000);
+            });
+        }
+
+        // Project filtering
+        const projectGrid = document.getElementById('project-grid');
+        const projectCards = projectGrid ? Array.from(projectGrid.getElementsByClassName('project-card')) : [];
+        const filterButtons = document.querySelectorAll('.project-filter-btn');
+
+        function filterProjects(category) {
+            projectCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            filterButtons.forEach(button => {
+                button.classList.remove('active-filter');
+                if (button.textContent.toLowerCase().includes(category) || (category === 'all' && button.textContent.toLowerCase() === 'all')) {
+                    button.classList.add('active-filter');
+                }
+            });
+        }
+        // Initialize project filter
+        if(projectGrid) filterProjects('all');
+
+    </script>
+
+</body>
+</html>
